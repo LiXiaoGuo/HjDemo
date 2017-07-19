@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        applicationId "com.liguo.hjdemo"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' , 'armeabi-v7a', 'x86','arm64-v8a'
+        }
+    }
+    dataBinding.enabled = true
+    kapt {
+        generateStubs = true
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+
+    compile 'com.android.support:multidex:1.0.1'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    kapt "com.android.databinding:compiler:$gradle_version"
+    compile "org.jetbrains.anko:anko-sdk21:$anko_version" // So here it's 15 too
+
+    //花椒
+    compile(name: 'hjsdk_2.1.1_176', ext: 'aar')
+    compile(name: 'liveplay_2.1.1_176', ext: 'aar')
+    compile(name: 'live_2.1.1_176', ext: 'aar')
+    compile 'com.android.support:support-annotations:25.3.1'
+    compile 'com.squareup.okio:okio:1.8.0'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    //响应试编程
+    compile 'io.reactivex.rxjava2:rxjava:2.0.5'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    // 网络框架
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    //ConverterFactory的String依赖包
+    compile 'com.squareup.retrofit2:converter-scalars:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    //gson
+//    compile 'com.google.code.gson:gson:2.8.0'
+    //图片加载框架
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+
+}
