@@ -1,13 +1,9 @@
 package liguo.application
 
-import android.app.Application
 import android.content.Context
-import android.graphics.Typeface
 import android.support.multidex.MultiDexApplication
 import android.util.Log
 import com.huajiao.sdk.shell.HJSDK
-import com.liguo.hjdemo.R
-import liguo.getCrash.CrashLog
 
 
 class BaseApplication : MultiDexApplication() {
@@ -15,7 +11,6 @@ class BaseApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
-        CrashLog.getInstance().init(BaseApplication.context, "1043274460@qq.com", "gkfbkpfltrnlbfeh", BaseApplication.context?.getString(R.string.app_name), "2563892038@qq.com")
         HJSDK.init(context,"14485","hkqDXcP8mzp9njpidQeU0TbDiTAtzNy7","7735516454644A36978374F494546663","haohaojiazu","hjDemo",null)
 
     }
