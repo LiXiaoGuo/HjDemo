@@ -2,7 +2,6 @@ package liguo
 
 import android.view.ViewManager
 import com.liguo.hjdemo.LoginBean
-import com.liguo.hjdemo.Tes
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

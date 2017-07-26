@@ -22,7 +22,6 @@ import org.jetbrains.anko.*
 class MainActivity : BaseActivity() {
     val userId = "9999"
     val userToken="NogVOgH3kIRfcysskMpHocGA4yPuF7D0"
-    var te : Tes?=null
     override fun config(savedInstanceState: Bundle?) {
 //        setContentView(R.layout.activity_main)
 
@@ -43,12 +42,10 @@ class MainActivity : BaseActivity() {
                     }
                     button("分类界面") {
                         onClick {
-//                            startActivity(intentFor<TypeActivity>())
-                            sartAn()
+                            startActivity(intentFor<TypeActivity>())
                         }
 
                     }
-                    te = tes {  }.lparams(dip(100),dip(100))
                 }
         )
     }
@@ -97,49 +94,6 @@ class MainActivity : BaseActivity() {
 //        })
 
 
-    }
-
-    fun sartAn(){
-        val sy = PropertyValuesHolder.ofFloat("jindu",0f,1f,0f,1f,0f)
-        val animator = ObjectAnimator.ofPropertyValuesHolder(te,sy)
-        var arr = 0
-        animator.interpolator = object : AccelerateDecelerateInterpolator(){
-            override fun getInterpolation(input: Float): Float {
-                Log.e("----------","--------------"+input)
-                if(0<=input && input<0.25){
-                    te!!.setCeng(0)
-                }else if(0<=input && input<0.25){
-                    te!!.setCeng(1)
-                }else if(0<=input && input<0.25){
-                    te!!.setCeng(2)
-                }else{
-                    te!!.setCeng(3)
-                }
-//                when(arr){
-//                    0,2->{
-//                     if(input==1f){
-//                         arr++
-//                         te!!.setCeng(arr)
-//                     }
-//                    }
-//                    1,3->{
-//                        if(input==0f){
-//                            arr++
-//                            te!!.setCeng(arr)
-//                            if(arr==4)arr=0
-//                        }
-//                    }
-//                }
-                return super.getInterpolation(input)
-            }
-        }
-        animator.duration = 10000
-        animator.start()
-        animator.addListener(object : AnimatorListenerAdapter(){
-            override fun onAnimationEnd(animation: Animator?) {
-
-            }
-        })
     }
 
     override fun initData() {
