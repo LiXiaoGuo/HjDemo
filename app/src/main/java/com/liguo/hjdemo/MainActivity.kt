@@ -1,22 +1,7 @@
 package com.liguo.hjdemo
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
-import android.app.Activity
 import android.os.Bundle
-import android.util.Log
-import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.LinearInterpolator
-import com.amap.api.maps.CameraUpdateFactory
-import com.huajiao.sdk.hjbase.env.PartnerLoginCallback
-import com.huajiao.sdk.hjbase.env.PartnerResultCallback
-import com.huajiao.sdk.shell.HJSDK
 import liguo.BaseActivity
-import liguo.Util
-import liguo.application.ke
-import liguo.tes
 import org.jetbrains.anko.*
 
 class MainActivity : BaseActivity() {
