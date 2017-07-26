@@ -119,5 +119,3 @@ inline fun ViewManager.flushRecyclerView(theme:Int=0,init:liguo.FlushRecyclerVie
         = ankoView({liguo.FlushRecyclerView(it)},theme,init)
 inline fun ViewManager.aMaps(theme:Int=0,init:com.amap.api.maps.MapView.()->Unit)
         =ankoView({com.amap.api.maps.MapView(it)},theme){init()}
-inline fun ViewManager.tes(theme:Int=0,init:Tes.()->Unit)
-        =ankoView({Tes(it)},theme){init()}
